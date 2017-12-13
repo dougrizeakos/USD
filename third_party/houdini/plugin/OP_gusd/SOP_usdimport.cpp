@@ -23,6 +23,7 @@
 //
 #include "SOP_usdimport.h"
 
+#include "gusd/GT_PrimCache.h"
 #include "gusd/GU_USD.h"
 #include "gusd/PRM_Shared.h"
 #include "gusd/stageCache.h"
@@ -375,6 +376,7 @@ GusdSOP_usdimport::Reload()
     
     GusdStageCacheWriter cache;
     cache.ReloadStages(paths);
+    GusdGT_PrimCache::GetInstance().Clear();
     forceRecook();
 }
 
