@@ -437,7 +437,10 @@ GusdGU_PackedUSD::getUsdTransform() const
         GusdUSD_XformCache::GetInstance().GetLocalToWorldTransform( 
              prim, m_frame, m_transformCache );
         m_transformCacheValid = true;
-    }        
+    }
+    else{
+        m_transformCache = UT_Matrix4D(1);
+    }
     return m_transformCache;
 }
 
